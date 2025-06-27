@@ -1,0 +1,37 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{ image }}" alt="{{ title }}" class="img-fluid rounded shadow-sm">
+    </div>
+
+    <div class="col-md-8">
+      <h1 class="display-5 fw-bold">{{ title }}</h1>
+      <p class="text-muted">By <strong>{{ author }}</strong></p>
+
+      {% if status == 'Available' %}
+        <span class="badge bg-success mb-2">Available</span>
+      {% elif status == 'Issued' %}
+        <span class="badge bg-danger mb-2">Issued</span>
+      {% endif %}
+
+      <ul class="list-group mb-3">
+        <li class="list-group-item"><strong>Publisher:</strong> {{ publisher }}</li>
+        <li class="list-group-item"><strong>ISBN:</strong> {{ isbn }}</li>
+      </ul>
+
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">{{ description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
